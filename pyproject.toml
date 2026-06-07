@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "longtail-cifar100-project"
+version = "1.0.0"
+description = "CIFAR-100-LT long-tailed image classification project with classical and neural baselines."
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scikit-learn>=1.3",
+  "scikit-image>=0.21",
+  "matplotlib>=3.7",
+  "pyyaml>=6.0",
+  "tqdm>=4.65",
+  "joblib>=1.3",
+  "Pillow>=9.5",
+]
+
+[project.optional-dependencies]
+torch = ["torch>=2.0", "torchvision>=0.15"]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

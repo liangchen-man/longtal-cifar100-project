@@ -1,0 +1,17 @@
+seed: 42
+data:
+  dataset: cifar100
+  root: ./data
+  imbalance_type: exp
+  imbalance_ratio: 100
+  num_classes: 100
+  max_train_per_class: 500
+  max_test_per_class: 100
+  batch_size: 64
+  num_workers: 0
+  augment: true
+  download: true
+eval:
+  balanced_test: true
+  imbalanced_test: true
+output_dir: results/exp_ir100

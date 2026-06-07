@@ -1,0 +1,20 @@
+seed: 42
+method: smoke_synthetic
+data:
+  dataset: synthetic
+  root: ./data
+  imbalance_type: exp
+  imbalance_ratio: 100
+  num_classes: 100
+  synthetic_max_train_per_class: 24
+  synthetic_test_per_class: 6
+  image_size: 32
+  batch_size: 64
+  num_workers: 0
+  augment: false
+model: {name: resnet20, num_classes: 100}
+optim: {epochs: 2, lr: 0.05, momentum: 0.9, weight_decay: 0.0002, milestones: [999]}
+loss: {name: cross_entropy}
+eval: {eval_every: 1}
+classical: {pca_components: 128, max_iter: 1500}
+output_dir: results/smoke_synthetic_ir100

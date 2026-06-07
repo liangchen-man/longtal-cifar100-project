@@ -1,0 +1,17 @@
+seed: 42
+method: ce_resnet32
+data:
+  dataset: cifar100
+  root: ./data
+  imbalance_type: exp
+  imbalance_ratio: 100
+  num_classes: 100
+  batch_size: 64
+  num_workers: 0
+  augment: true
+  download: true
+model: {name: resnet32, num_classes: 100}
+optim: {epochs: 200, lr: 0.1, momentum: 0.9, weight_decay: 0.0002, milestones: [160, 180]}
+loss: {name: cross_entropy}
+eval: {eval_every: 10}
+output_dir: results/ce_resnet32_ir100

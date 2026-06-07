@@ -1,0 +1,17 @@
+seed: 42
+method: ldam_drw_resnet32_s1
+data:
+  dataset: cifar100
+  root: ./data
+  imbalance_type: exp
+  imbalance_ratio: 100
+  num_classes: 100
+  batch_size: 64
+  num_workers: 0
+  augment: true
+  download: true
+model: {name: resnet32, num_classes: 100}
+optim: {epochs: 200, lr: 0.1, momentum: 0.9, weight_decay: 0.0002, milestones: [160, 180]}
+loss: {name: ldam, max_m: 0.5, s: 1, drw_start_epoch: 160, beta: 0.9999}
+eval: {eval_every: 10}
+output_dir: results/ldam_drw_resnet32_ir100_s1
